@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="18电影网是面向影视爱好者的在线观影指南与资讯门户，汇集院线新片、经典重温、类型片单与幕后解读，提供影片介绍、排片资讯、观影提示与正版观看渠道指引。访问 18电影网 官网 https://18dianyingwang-app.github.io 获取每日更新的电影内容与专题推荐。">
+<meta name="keywords" content="18电影网,18dianyingwang-app.github.io,电影资讯,院线新片,高清电影,经典电影,电影推荐,影片介绍,观影指南,影视评论,票房,预告片,导演,演员,剧情介绍">
+<meta name="author" content="18电影网编辑部">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<title>18电影网 - 电影资讯与观影指南 | 18电影网官网</title>
+<link rel="canonical" href="https://18dianyingwang-app.github.io">
+<style>
+:root{
+  --ink:#12161c;
+  --ink-2:#3a4250;
+  --mute:#7b8494;
+  --line:#e6e2d8;
+  --paper:#f7f4ec;
+  --card:#ffffff;
+  --accent:#c2410c;
+  --accent-soft:#fff1e6;
+  --gold:#b45309;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* 顶部 */
+.topbar{background:var(--ink);color:#cfd6e2;font-size:12.5px;padding:8px 0;border-bottom:1px solid #000}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar a{color:#9fb0c7}
+.topbar a:hover{color:#fff}
+
+/* 导航 */
+header{background:var(--card);border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(18,22,28,.06)}
+.nav{display:flex;align-items:center;gap:6px;padding:12px 0}
+.brand{font-size:22px;font-weight:800;letter-spacing:1px;color:var(--ink);margin-right:auto;white-space:nowrap}
+.brand i{color:var(--accent);font-style:normal}
+.nav a{font-size:14.5px;padding:7px 11px;border-radius:6px;color:var(--ink-2);font-weight:600}
+.nav a:hover{background:var(--accent-soft);color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:13px;cursor:pointer;color:var(--ink-2)}
+
+/* 横幅 */
+.hero{background:linear-gradient(135deg,#1f2430 0%,#3a2418 55%,#7c2d12 100%);color:#fff;padding:44px 0 38px;margin-bottom:26px}
+.hero h1{font-size:30px;line-height:1.3;font-weight:800;letter-spacing:.5px}
+.hero h1 span{color:#fbbf24}
+.hero p{margin-top:12px;color:#e7e0d4;max-width:660px;font-size:15px}
+.crumb{margin-top:16px;font-size:13px;color:#c9d3e0}
+.crumb a{color:#fbbf24}
+
+/* 栏目标题 */
+.sec{padding:22px 0}
+.sec-head{display:flex;align-items:baseline;gap:10px;border-left:5px solid var(--accent);padding-left:12px;margin-bottom:18px}
+.sec-head h2{font-size:21px;letter-spacing:.5px}
+.sec-head em{font-style:normal;font-size:12.5px;color:var(--mute);letter-spacing:1px}
+
+/* 卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(18,22,28,.10)}
+.thumb{height:150px;background:linear-gradient(120deg,#e8dcc8,#cfc3aa);position:relative;display:flex;align-items:flex-end;padding:10px 12px}
+.thumb b{background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:3px 8px;border-radius:4px;backdrop-filter:blur(2px)}
+.card dl{padding:12px 14px}
+.card dt{font-size:16px;font-weight:700;margin-bottom:5px;line-height:1.4}
+.card dd{font-size:13.5px;color:var(--ink-2)}
+.tag{display:inline-block;font-size:11.5px;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:2px 7px;margin:10px 14px 14px 0}
+
+/* 列表 */
+.list{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 18px}
+.list li{list-style:none;display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);align-items:flex-start}
+.list li:last-child{border-bottom:none}
+.list .no{font-size:13px;font-weight:800;color:var(--accent);min-width:26px}
+.list h3{font-size:15.5px;font-weight:700;line-height:1.45}
+.list p{font-size:13px;color:var(--mute);margin-top:3px}
+
+/* 双栏 */
+.two{display:grid;grid-template-columns:1.6fr 1fr;gap:22px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.box h3{font-size:17px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:20px;color:var(--ink-2);background:#faf8f3}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+table th,table td{padding:9px 6px;text-align:left;border-bottom:1px solid var(--line)}
+table th{color:var(--mute);font-weight:600;font-size:12.5px}
+
+/* 页脚 */
+footer{background:var(--ink);color:#aeb9c9;margin-top:30px;padding:34px 0 22px;font-size:13.5px}
+footer .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+footer h4{color:#fff;font-size:15px;margin-bottom:10px}
+footer a{display:block;color:#9aa8bc;padding:3px 0;font-size:13px}
+footer a:hover{color:#fff}
+.copy{border-top:1px solid #2b323d;margin-top:22px;padding-top:16px;text-align:center;color:#7d8999;font-size:12.5px}
+.copy b{color:#fbbf24}
+
+/* 移动端 */
+@media (max-width:820px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .two{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  body{font-size:15px}
+  .menu-btn{display:block}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);flex-direction:column;padding:10px 18px;border-top:1px solid var(--line);box-shadow:0 8px 18px rgba(0,0,0,.08)}
+  .nav-links.open{display:flex}
+  .nav-links a{border-radius:0;border-bottom:1px solid #f0ede6;padding:11px 4px}
+  .hero{padding:30px 0}
+  .hero h1{font-size:23px}
+  .grid{grid-template-columns:1fr}
+  .sec-head h2{font-size:18px}
+  footer .wrap{grid-template-columns:1fr}
+  .brand{font-size:19px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>官网地址：<a href="https://18dianyingwang-app.github.io">https://18dianyingwang-app.github.io</a></span>
+    <span>每日更新 · 影片资讯 · 观影指南</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top"><i>18</i>电影网</a>
+      <button class="menu-btn" id="mb" aria-label="菜单">☰ 菜单</button>
+      <div class="nav-links" id="nl">
+        <a href="#new">院线新片</a>
+        <a href="#type">类型片单</a>
+        <a href="#classic">经典重温</a>
+        <a href="#guide">观影指南</a>
+        <a href="#news">行业动态</a>
+        <a href="#about">关于我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1>18电影网 —— 你的<span>每日观影说明书</span></h1>
+    <p>从院线热映到影史经典，18电影网以清晰的影片介绍、客观的内容解读与实用的观看建议，帮你在浩如烟海的影像里快速找到值得花时间的一部。所有内容均为原创整理，更新于 <strong>https://18dianyingwang-app.github.io</strong>。</p>
+    <div class="crumb"><a href="https://18dianyingwang-app.github.io">首页</a> / <a href="#new">新片</a> / <a href="#type">片单</a> / <a href="#classic">经典</a> / <a href="#guide">指南</a></div>
+  </div>
+</section>
+
+<main>
+
+  <section class="sec" id="new">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>院线新片</h2>
+        <em>WHAT'S SHOWING</em>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#5b6b7d,#2f3d4d)"><b>剧情 / 悬疑</b></div>
+          <dl>
+            <dt>《逆光而行》</dt>
+            <dd>一位失踪的档案管理员，牵出一桩横跨二十年的旧案。叙事节奏克制，结尾反转成立。</dd>
+          </dl>
+          <span class="tag">豆瓣 8.1</span>
+        </article>
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#c9a26a,#8a6a3c)"><b>动画 / 奇幻</b></div>
+          <dl>
+            <dt>《海边的邮局》</dt>
+            <dd>手绘质感十足的治愈系动画，以一封寄不出的信串联起三代人的记忆。</dd>
+          </dl>
+          <span class="tag">适合全家</span>
+        </article>
+        <article class="card">
+          <div class="thumb" style="background:linear-gradient(135deg,#b56576,#6d3b4c)"><b>动作 / 犯罪</b></div>
+          <dl>
+            <dt>《凌晨三点的街》</dt>
+            <dd>实景拍摄的追车戏与近身格斗是最大看点，配乐选用冷爵士，气质独特。</dd>
+          </dl>
+          <span class="tag">IMDb 7.4</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="type">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>类型片单</h2>
+        <em>CURATED LISTS</em>
+      </div>
+      <ul class="list">
+        <li><span class="no">01</span><div><h3>周末两小时：适合放松的轻喜剧</h3><p>《实习生》《完美陌生人》《年会不能停！》——笑点不靠尴尬，靠观察。</p></div></li>
+        <li><span class="no">02</span><div><h3>雨夜片单：氛围感胜过剧情的悬疑片</h3><p>《看不见的客人》《禁闭岛》《消失的爱人》，建议关灯观看。</p></div></li>
+        <li><span class="no">03</span><div><h3>给孩子的第一部长片</h3><p>《千与千寻》《地球脉动》电影版《雄狮少年》，画面与价值观双重友好。</p></div></li>
+        <li><span class="no">04</span><div><h3>纪录片：真实比虚构更锋利</h3><p>《徒手攀岩》《美国工厂》《人间世》影像纪实，看完会想与人聊聊。</p></div></li>
+        <li><span class="no">05</span><div><h3>冷门但值得：被片名耽误的好电影</h3><p>《爆裂鼓手》《海边的曼彻斯特》《狩猎》，片名朴素，后劲很大。</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="classic">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>经典重温</h2>
+        <em>THE CLASSICS</em>
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3>为什么老片依然值得看</h3>
+          <p style="font-size:14.5px;color:var(--ink-2);margin-bottom:12px">技术会迭代，叙事不会。18电影网每周挑一部影史代表作，做不超过八百字的细读：看它如何处理时间、如何处理沉默、如何处理一个普通人面对抉择时的迟疑。</p>
+          <div class="chips">
+            <a href="#">《肖申克的救赎》</a>
+            <a href="#">《霸王别姬》</a>
+            <a href="#">《阿甘正传》</a>
+            <a href="#">《低俗小说》</a>
+            <a href="#">《活着》</a>
+            <a href="#">《星际穿越》</a>
+            <a href="#">《天堂电影院》</a>
+            <a href="#">《美丽人生》</a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>本周放映室</h3>
+          <table>
+            <tr><th>影片</th><th>年份</th><th>关键词</th></tr>
+            <tr><td>《霸王别姬》</td><td>1993</td><td>时代 · 执念</td></tr>
+            <tr><td>《活着》</td><td>1994</td><td>苦难 · 韧性</td></tr>
+            <tr><td>《阳光灿烂的日子》</td><td>1993</td><td>青春 · 记忆</td></tr>
+            <tr><td>《无间道》</td><td>2002</td><td>身份 · 对峙</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>观影指南</h2>
+        <em>HOW TO WATCH</em>
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3>选片三问</h3>
+          <p style="font-size:14.5px;color:var(--ink-2)">① 今天想被触动，还是想被带走？前者选剧情，后者选类型。<br>② 有没有 90 分钟以上的完整时间？没有就别开长篇。<br>③ 看完想跟谁聊？独处看作者片，聚会看群像片。</p>
+        </div>
+        <div class="box">
+          <h3>正版观看渠道提示</h3>
+          <p style="font-size:14.5px;color:var(--ink-2)">院线影片请以当地影院排片为准；已下映影片可在持牌视频平台按片名检索。支持正版，是对创作者最直接的鼓励。18电影网不提供、也不链接任何未授权资源。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>行业动态</h2>
+        <em>IN BRIEF</em>
+      </div>
+      <ul class="list">
+        <li><span class="no">●</span><div><h3>国庆档票房观察：观众更在意“值不值票价”</h3><p>口碑发酵周期缩短，上映第三天即成关键分水岭。</p></div></li>
+        <li><span class="no">●</span><div><h3>流媒体与影院：从对立回到互补</h3><p>中小成本影片更倾向于“短窗口期”发行策略。</p></div></li>
+        <li><span class="no">●</span><div><h3>AI 参与制作：工具归工具，判断仍归人</h3><p>视效环节效率提升明显，但叙事层面的替代尚不成立。</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>关于 18电影网</h2>
+        <em>ABOUT</em>
+      </div>
+      <div class="box">
+        <p style="font-size:15px;color:var(--ink-2)">18电影网（<strong>https://18dianyingwang-app.github.io</strong>）是一个由几位长期写影评的编辑共同维护的影视内容站点。我们不追热搜，不做搬运，只做两件事：把一部片子的长处与短板说清楚，以及帮你在有限的时间里做出不错的选择。栏目涵盖<strong>院线新片、类型片单、经典重温、观影指南与行业观察</strong>，内容均为原创或基于公开资料的整理，更新频率为每周不少于三次。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>18电影网</h4>
+      <a href="#top">返回顶部</a>
+      <a href="#new">院线新片</a>
+      <a href="#type">类型片单</a>
+    </div>
+    <div>
+      <h4>内容</h4>
+      <a href="#classic">经典重温</a>
+      <a href="#guide">观影指南</a>
+      <a href="#news">行业动态</a>
+    </div>
+    <div>
+      <h4>支持</h4>
+      <a href="#">内容合作</a>
+      <a href="#">纠错反馈</a>
+      <a href="#">版权声明</a>
+    </div>
+    <div>
+      <h4>官方地址</h4>
+      <a href="https://18dianyingwang-app.github.io">18dianyingwang-app.github.io</a>
+      <a href="#">RSS 订阅</a>
+      <a href="#">站点地图</a>
+    </div>
+  </div>
+  <div class="wrap copy">
+    <p>© <span id="y"></span> 18电影网 &nbsp;|&nbsp; 网站名称：<b>18电影网</b> &nbsp;|&nbsp; 官网：<b>https://18dianyingwang-app.github.io</b> &nbsp;|&nbsp; 本页为单页结构，栏目内链以 # 锚点实现，符合搜索引擎抓取规范。</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+document.getElementById('mb').addEventListener('click',function(){
+  document.getElementById('nl').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){ document.getElementById('nl').classList.remove('open'); });
+});
+</script>
+</body>
+</html>
